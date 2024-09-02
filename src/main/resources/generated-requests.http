@@ -1,0 +1,88 @@
+# curl -X POST http://localhost:8080/login -d "id=1"
+POST http://localhost:8080/login
+Content-Type: application/x-www-form-urlencoded
+
+id=1
+
+
+###
+
+# curl -X POST http://localhost:8080/join -d "name=JohnDoe" -d "password=secret"
+POST http://localhost:8080/join
+Content-Type: application/x-www-form-urlencoded
+
+name=JohnDoe&password=secret
+
+<> 2024-09-02T024006.200.txt
+
+###
+
+# curl -X POST http://localhost:8080/update -d "id=1" -d "name=JohnDoeUpdated" -d "password=newsecret"
+POST http://localhost:8080/update
+Content-Type: application/x-www-form-urlencoded
+
+id=1&name=JohnDoeUpdated&password=newsecret
+
+<> 2024-09-02T024016.200.txt
+
+###
+
+# curl -X POST http://localhost:8080/leave -d "id=1" -d "name=JohnDoe" -d "password=secret"
+POST http://localhost:8080/leave
+Content-Type: application/x-www-form-urlencoded
+
+id=1&name=JohnDoe&password=secret
+
+<> 2024-09-02T125931.200.txt
+<> 2024-09-02T024023.200.txt
+
+###
+
+# curl -X POST http://localhost:8080/login -H "enc: true" -d "id=1"
+POST http://localhost:8080/login
+enc: true
+Content-Type: application/x-www-form-urlencoded
+
+id=1
+
+<> 2024-09-02T130032.200.txt
+<> 2024-09-02T111547.200.txt
+
+
+
+###
+
+# curl -X POST http://localhost:8080/join -H "enc: true" -d "name=JohnDoe" -d "password=secret"
+POST http://localhost:8080/join
+enc: true
+Content-Type: application/x-www-form-urlencoded
+
+name=JohnDoe&password=secret
+
+<> 2024-09-02T130018.200.txt
+
+###
+
+# curl -X POST http://localhost:8080/update -H "enc: true" -d "id=1" -d "name=JohnDoeUpdated" -d "password=newsecret"
+POST http://localhost:8080/update
+enc: true
+Content-Type: application/x-www-form-urlencoded
+
+id=1&name=JohnDoeUpdated&password=newsecret
+
+<> 2024-09-02T130021.200.txt
+
+###
+
+# curl -X POST http://localhost:8080/leave -H "enc: true" -d "id=1" -d "name=JohnDoe" -d "password=secret"
+POST http://localhost:8080/leave
+enc: true
+Content-Type: application/x-www-form-urlencoded
+
+id=1&name=JohnDoe&password=secret
+
+<> 2024-09-02T130024.200.txt
+
+###
+
+

@@ -134,3 +134,8 @@ curl -X POST http://localhost:8080/members/echo \
     -H "Content-Type: application/json" \
     -d 'LnVpOmF0Gz+2cPYKBKPIvDNdd7ux0xebmb63Ov7X5DE0GDsc/wRe1IUCz2l6u6XBfZVvBkMBWWo1zyfT1MiDFWRbZFRaRti9qXrzX8sjBBM='
 ```
+
+## POSTMAN_JSON
+ 아래 파일을 postman에 import 하시면 됩니다.
+- postmanImport
+- postmanImport2

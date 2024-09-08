@@ -135,7 +135,7 @@ curl -X DELETE http://localhost:8080/members/leave \
 ```
 Echo 요청
 ```bash
-curl -X POST http://localhost:8080/echo \
+curl -X POST http://localhost:8080/members/echo \
     -H "Content-Type: application/json" \
     -d 'LnVpOmF0Gz+2cPYKBKPIvDNdd7ux0xebmb63Ov7X5DE0GDsc/wRe1IUCz2l6u6XBfZVvBkMBWWo1zyfT1MiDFWRbZFRaRti9qXrzX8sjBBM='
 ```

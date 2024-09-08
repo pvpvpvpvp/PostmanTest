@@ -1,0 +1,160 @@
+{
+    "info": {
+        "name": "Member API Tests",
+        "_postman_id": "your-unique-id",
+        "description": "Collection of API requests for member management.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Login Member",
+            "request": {
+                "method": "POST",
+                "header": [
+                    { "key": "Content-Type", "value": "application/json" }
+                ],
+                "url": { "raw": "http://localhost:8080/members/login", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["members", "login"] },
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\"nickName\": \"testUser\", \"password\": \"testPassword\"}"
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Join Member",
+            "request": {
+                "method": "POST",
+                "header": [
+                    { "key": "Content-Type", "value": "application/json" }
+                ],
+                "url": { "raw": "http://localhost:8080/members/join", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["members", "join"] },
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\"name\": \"Test User\", \"password\": \"testPassword\", \"nickName\": \"testUser\"}"
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Update Member",
+            "request": {
+                "method": "PUT",
+                "header": [
+                    { "key": "Content-Type", "value": "application/json" }
+                ],
+                "url": { "raw": "http://localhost:8080/members/update", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["members", "update"] },
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\"id\": 1, \"name\": \"Updated User\", \"password\": \"newPassword\", \"nickName\": \"updatedUser\"}"
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Delete Member",
+            "request": {
+                "method": "DELETE",
+                "header": [
+                    { "key": "Content-Type", "value": "application/json" }
+                ],
+                "url": { "raw": "http://localhost:8080/members/leave", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["members", "leave"] },
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\"id\": 1}"
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Login Non-Existent User",
+            "request": {
+                "method": "POST",
+                "header": [
+                    { "key": "Content-Type", "value": "application/json" }
+                ],
+                "url": { "raw": "http://localhost:8080/members/login", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["members", "login"] },
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\"nickName\": \"nonExistentUser\", \"password\": \"testPassword\"}"
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Login with Wrong Password",
+            "request": {
+                "method": "POST",
+                "header": [
+                    { "key": "Content-Type", "value": "application/json" }
+                ],
+                "url": { "raw": "http://localhost:8080/members/login", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["members", "login"] },
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\"nickName\": \"testUser\", \"password\": \"wrongPassword\"}"
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Join Member with Existing Nickname",
+            "request": {
+                "method": "POST",
+                "header": [
+                    { "key": "Content-Type", "value": "application/json" }
+                ],
+                "url": { "raw": "http://localhost:8080/members/join", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["members", "join"] },
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\"name\": \"Another User\", \"password\": \"testPassword\", \"nickName\": \"testUser\"}"
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Update Member with Non-Existent ID",
+            "request": {
+                "method": "PUT",
+                "header": [
+                    { "key": "Content-Type", "value": "application/json" }
+                ],
+                "url": { "raw": "http://localhost:8080/members/update", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["members", "update"] },
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\"id\": 9999, \"name\": \"Updated User\", \"password\": \"newPassword\", \"nickName\": \"updatedUser\"}"
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Update Member with Existing Nickname",
+            "request": {
+                "method": "PUT",
+                "header": [
+                    { "key": "Content-Type", "value": "application/json" }
+                ],
+                "url": { "raw": "http://localhost:8080/members/update", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["members", "update"] },
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\"id\": 1, \"name\": \"Updated User\", \"password\": \"newPassword\", \"nickName\": \"existingNickName\"}"
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Delete Member with Non-Existent ID",
+            "request": {
+                "method": "DELETE",
+                "header": [
+                    { "key": "Content-Type", "value": "application/json" }
+                ],
+                "url": { "raw": "http://localhost:8080/members/leave", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["members", "leave"] },
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\"id\": 9999}"
+                }
+            },
+            "response": []
+        }
+    ]
+}

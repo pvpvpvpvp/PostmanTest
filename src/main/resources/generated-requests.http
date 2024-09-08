@@ -1,88 +1,177 @@
-# curl -X POST http://localhost:8080/login -d "id=1"
-POST http://localhost:8080/login
-Content-Type: application/x-www-form-urlencoded
+###
 
-id=1
+# curl -X POST http://localhost:8080/members/login
+#    -H "Content-Type: application/json"
+#    -d '{
+#          "nickName": "testUser",
+#          "password": "testPassword"
+#        }'
+POST http://localhost:8080/members/login
+Content-Type: application/json
 
+{
+  "nickName": "testUser",
+  "password": "testPassword"
+}
 
 ###
 
-# curl -X POST http://localhost:8080/join -d "name=JohnDoe" -d "password=secret"
-POST http://localhost:8080/join
-Content-Type: application/x-www-form-urlencoded
+# curl -X POST http://localhost:8080/members/join
+#    -H "Content-Type: application/json"
+#    -d '{
+#          "name": "Test User",
+#          "password": "testPassword",
+#          "nickName": "testUser"
+#        }'
+POST http://localhost:8080/members/join
+Content-Type: application/json
 
-name=JohnDoe&password=secret
-
-<> 2024-09-02T024006.200.txt
-
-###
-
-# curl -X POST http://localhost:8080/update -d "id=1" -d "name=JohnDoeUpdated" -d "password=newsecret"
-POST http://localhost:8080/update
-Content-Type: application/x-www-form-urlencoded
-
-id=1&name=JohnDoeUpdated&password=newsecret
-
-<> 2024-09-02T024016.200.txt
+{
+  "name": "Test User",
+  "password": "testPassword",
+  "nickName": "testUser"
+}
 
 ###
 
-# curl -X POST http://localhost:8080/leave -d "id=1" -d "name=JohnDoe" -d "password=secret"
-POST http://localhost:8080/leave
-Content-Type: application/x-www-form-urlencoded
+# curl -X PUT http://localhost:8080/members/update
+#    -H "Content-Type: application/json"
+#    -d '{
+#          "id": 1,
+#          "name": "Updated User",
+#          "password": "newPassword",
+#          "nickName": "updatedUser"
+#        }'
+PUT http://localhost:8080/members/update
+Content-Type: application/json
 
-id=1&name=JohnDoe&password=secret
-
-<> 2024-09-02T125931.200.txt
-<> 2024-09-02T024023.200.txt
-
-###
-
-# curl -X POST http://localhost:8080/login -H "enc: true" -d "id=1"
-POST http://localhost:8080/login
-enc: true
-Content-Type: application/x-www-form-urlencoded
-
-id=1
-
-<> 2024-09-02T130032.200.txt
-<> 2024-09-02T111547.200.txt
-
-
+{
+  "id": 1,
+  "name": "Updated User",
+  "password": "newPassword",
+  "nickName": "updatedUser"
+}
 
 ###
 
-# curl -X POST http://localhost:8080/join -H "enc: true" -d "name=JohnDoe" -d "password=secret"
-POST http://localhost:8080/join
-enc: true
-Content-Type: application/x-www-form-urlencoded
+# curl -X DELETE http://localhost:8080/members/leave
+#    -H "Content-Type: application/json"
+#    -d '{
+#          "id": 1
+#        }'
+DELETE http://localhost:8080/members/leave
+Content-Type: application/json
 
-name=JohnDoe&password=secret
-
-<> 2024-09-02T130018.200.txt
-
-###
-
-# curl -X POST http://localhost:8080/update -H "enc: true" -d "id=1" -d "name=JohnDoeUpdated" -d "password=newsecret"
-POST http://localhost:8080/update
-enc: true
-Content-Type: application/x-www-form-urlencoded
-
-id=1&name=JohnDoeUpdated&password=newsecret
-
-<> 2024-09-02T130021.200.txt
+{
+  "id": 1
+}
 
 ###
 
-# curl -X POST http://localhost:8080/leave -H "enc: true" -d "id=1" -d "name=JohnDoe" -d "password=secret"
-POST http://localhost:8080/leave
-enc: true
-Content-Type: application/x-www-form-urlencoded
+# curl -X POST http://localhost:8080/members/login
+#    -H "Content-Type: application/json"
+#    -d '{
+#          "nickName": "nonExistentUser",
+#          "password": "testPassword"
+#        }'
+POST http://localhost:8080/members/login
+Content-Type: application/json
 
-id=1&name=JohnDoe&password=secret
-
-<> 2024-09-02T130024.200.txt
+{
+  "nickName": "nonExistentUser",
+  "password": "testPassword"
+}
 
 ###
 
+# curl -X POST http://localhost:8080/members/login
+#    -H "Content-Type: application/json"
+#    -d '{
+#          "nickName": "testUser",
+#          "password": "wrongPassword"
+#        }'
+POST http://localhost:8080/members/login
+Content-Type: application/json
+
+{
+  "nickName": "testUser",
+  "password": "wrongPassword"
+}
+
+###
+
+# curl -X POST http://localhost:8080/members/join
+#    -H "Content-Type: application/json"
+#    -d '{
+#          "name": "Another User",
+#          "password": "testPassword",
+#          "nickName": "testUser"  # 이미 존재하는 닉네임
+#        }'
+POST http://localhost:8080/members/join
+Content-Type: application/json
+
+{
+  "name": "Another User",
+  "password": "testPassword",
+  "nickName": "testUser"
+}
+
+###
+
+# curl -X PUT http://localhost:8080/members/update
+#    -H "Content-Type: application/json"
+#    -d '{
+#          "id": 9999,  # 존재하지 않는 ID
+#          "name": "Updated User",
+#          "password": "newPassword",
+#          "nickName": "updatedUser"
+#        }'
+PUT http://localhost:8080/members/update
+Content-Type: application/json
+
+{
+  "id": 9999,
+  "name": "Updated User",
+  "password": "newPassword",
+  "nickName": "updatedUser"
+}
+
+###
+
+# curl -X PUT http://localhost:8080/members/update
+#    -H "Content-Type: application/json"
+#    -d '{
+#          "id": 1,  # 존재하는 ID
+#          "name": "Updated User",
+#          "password": "newPassword",
+#          "nickName": "existingNickName"  # 이미 존재하는 닉네임
+#        }'
+PUT http://localhost:8080/members/update
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "Updated User",
+  "password": "newPassword",
+  "nickName": "existingNickName"
+}
+
+###
+
+
+
+
+# curl -X DELETE http://localhost:8080/members/leave
+#    -H "Content-Type: application/json"
+#    -d '{
+#          "id": 9999  # 존재하지 않는 ID
+#        }'
+DELETE http://localhost:8080/members/leave
+Content-Type: application/json
+
+{
+  "id": 9999
+}
+
+###
 

@@ -1,14 +1,15 @@
 package com.example.postmantestapi.service;
 
 import com.example.postmantestapi.entity.Member;
+import com.example.postmantestapi.response.Response;
 
 public interface MemberService {
 
-    public Member login(Member id);
+    Response<String> login(Member member);
 
-    public Member join(Member member);
+    Response<String> join(Member member);
 
-    public Member update(Member member);
+    Response<String> update(Member member);
 
-    public Member leave(Member member);
+    Response<String> leave(Member member);
 }

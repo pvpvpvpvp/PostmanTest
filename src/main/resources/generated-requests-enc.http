@@ -1,0 +1,214 @@
+# curl -X POST http://localhost:8080/members/login
+#   -H "Content-Type: application/json"
+#   -H "enc: true"
+#   -d '{
+#         "nickName": "testUser",
+#         "password": "testPassword"
+#       }'
+POST http://localhost:8080/members/login
+enc: true
+Content-Type: application/json
+
+{
+  "nickName": "testUser",
+  "password": "testPassword"
+}
+
+###
+
+# curl -X POST http://localhost:8080/members/join
+#   -H "Content-Type: application/json"
+#   -H "enc: true"
+#   -d '{
+#         "name": "Test User",
+#         "password": "testPassword",
+#         "nickName": "testUser"
+#       }'
+POST http://localhost:8080/members/join
+enc: true
+Content-Type: application/json
+
+{
+  "name": "Test User",
+  "password": "testPassword",
+  "nickName": "testUser"
+}
+
+###
+
+# curl -X PUT http://localhost:8080/members/update
+#   -H "Content-Type: application/json"
+#   -H "enc: true"
+#   -d '{
+#         "id": 1,
+#         "name": "Updated User",
+#         "password": "newPassword",
+#         "nickName": "updatedUser"
+#       }'
+PUT http://localhost:8080/members/update
+enc: true
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "Updated User",
+  "password": "newPassword",
+  "nickName": "updatedUser"
+}
+
+###
+
+# curl -X DELETE http://localhost:8080/members/leave
+#   -H "Content-Type: application/json"
+#   -H "enc: true"
+#   -d '{
+#         "id": 1
+#       }'
+DELETE http://localhost:8080/members/leave
+enc: true
+Content-Type: application/json
+
+{
+  "id": 1
+}
+
+###
+
+# curl -X POST http://localhost:8080/members/login
+#   -H "Content-Type: application/json"
+#   -H "enc: true"
+#   -d '{
+#         "nickName": "nonExistentUser",
+#         "password": "testPassword"
+#       }'
+POST http://localhost:8080/members/login
+enc: true
+Content-Type: application/json
+
+{
+  "nickName": "nonExistentUser",
+  "password": "testPassword"
+}
+
+###
+
+# curl -X POST http://localhost:8080/members/login
+#   -H "Content-Type: application/json"
+#   -H "enc: true"
+#   -d '{
+#         "nickName": "testUser",
+#         "password": "wrongPassword"
+#       }'
+POST http://localhost:8080/members/login
+enc: true
+Content-Type: application/json
+
+{
+  "nickName": "testUser",
+  "password": "wrongPassword"
+}
+
+###
+
+# curl -X POST http://localhost:8080/members/join
+#   -H "Content-Type: application/json"
+#   -H "enc: true"
+#   -d '{
+#         "name": "Another User",
+#         "password": "testPassword",
+#         "nickName": "testUser"
+#       }'
+POST http://localhost:8080/members/join
+enc: true
+Content-Type: application/json
+
+{
+  "name": "Another User",
+  "password": "testPassword",
+  "nickName": "testUser"
+}
+
+###
+
+# curl -X PUT http://localhost:8080/members/update
+#   -H "Content-Type: application/json"
+#   -H "enc: true"
+#   -d '{
+#         "id": 9999,
+#         "name": "Updated User",
+#         "password": "newPassword",
+#         "nickName": "updatedUser"
+#       }'
+PUT http://localhost:8080/members/update
+enc: true
+Content-Type: application/json
+
+{
+  "id": 9999,
+  "name": "Updated User",
+  "password": "newPassword",
+  "nickName": "updatedUser"
+}
+
+###
+
+# curl -X PUT http://localhost:8080/members/update
+#   -H "Content-Type: application/json"
+#   -H "enc: true"
+#   -d '{
+#         "id": 1,
+#         "name": "Updated User",
+#         "password": "newPassword",
+#         "nickName": "existingNickName"
+#       }'
+PUT http://localhost:8080/members/update
+enc: true
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "Updated User",
+  "password": "newPassword",
+  "nickName": "existingNickName"
+}
+
+###
+
+# curl -X DELETE http://localhost:8080/members/leave
+#   -H "Content-Type: application/json"
+#   -H "enc: true"
+#   -d '{
+#         "id": 9999
+#       }'
+DELETE http://localhost:8080/members/leave
+enc: true
+Content-Type: application/json
+
+{
+  "id": 9999
+}
+###
+
+# curl -X POST http://localhost:8080/echo
+#     -H "Content-Type: application/json"
+#     -d '{"encString": "LnVpOmF0Gz+2cPYKBKPIvDNdd7ux0xebmb63Ov7X5DE0GDsc/wRe1IUCz2l6u6XBfZVvBkMBWWo1zyfT1MiDFWRbZFRaRti9qXrzX8sjBBM="}'
+POST http://localhost:8080/members/echo
+Content-Type: application/json
+
+LnVpOmF0Gz+2cPYKBKPIvDNdd7ux0xebmb63Ov7X5DE0GDsc/wRe1IUCz2l6u6XBfZVvBkMBWWo1zyfT1MiDFWRbZFRaRti9qXrzX8sjBBM=
+
+
+###
+
+
+
+
+
+
+
+
+
+
+
+
+

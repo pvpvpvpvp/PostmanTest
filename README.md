@@ -128,7 +128,7 @@ curl -X DELETE http://localhost:8080/members/leave \
           "id": 9999
         }'
 ```
-Echo 요청
+Echo 요청 해당 요청은 암호화된 String을 복호화 하여 응답합니다.
 ```bash
 curl -X POST http://localhost:8080/members/echo \
     -H "Content-Type: application/json" \

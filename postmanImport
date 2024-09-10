@@ -173,7 +173,7 @@
                 "header": [
                     { "key": "Content-Type", "value": "application/json" }
                 ],
-                "url": { "raw": "http://localhost:8080/members/echo", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["echo"] },
+                "url": { "raw": "http://localhost:8080/members/echo", "protocol": "http", "host": ["localhost"], "port": "8080", "path": ["members", "echo"] },
                 "body": {
                     "mode": "raw",
                     "raw": "LnVpOmF0Gz+2cPYKBKPIvDNdd7ux0xebmb63Ov7X5DE0GDsc/wRe1IUCz2l6u6XBfZVvBkMBWWo1zyfT1MiDFWRbZFRaRti9qXrzX8sjBBM="

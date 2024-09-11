@@ -1,0 +1,431 @@
+{
+	"info": {
+		"_postman_id": "b4865151-454c-4fd8-9ae8-1770abf43b2d",
+		"name": "Member API Tests Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38203046"
+	},
+	"item": [
+		{
+			"name": "Login Member",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"pm.expect(jsonData).to.have.property('resultCode');",
+							"pm.expect(jsonData.resultCode).to.eql('0000');"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "enc",
+						"value": "true",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"nickName\": \"testUser\", \"password\": \"testPassword\"}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/members/login",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"members",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Join Member",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"pm.expect(jsonData).to.have.property('resultCode');",
+							"pm.expect(jsonData.resultCode).to.eql('0000');"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\": \"Test User\", \"password\": \"testPassword\", \"nickName\": \"testUser\"}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/members/join",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"members",
+						"join"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Member",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"pm.expect(jsonData).to.have.property('resultCode');",
+							"pm.expect(jsonData.resultCode).to.eql('0000');"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\": 1, \"name\": \"Updated User\", \"password\": \"newPassword\", \"nickName\": \"updatedUser\"}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/members/update",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"members",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Member",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"pm.expect(jsonData).to.have.property('resultCode');",
+							"pm.expect(jsonData.resultCode).to.eql('0000');"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\": 1}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/members/leave",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"members",
+						"leave"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login Non-Existent User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"pm.expect(jsonData).to.have.property('resultCode');",
+							"pm.expect(jsonData.resultCode).to.eql('0001');"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"nickName\": \"nonExistentUser\", \"password\": \"testPassword\"}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/members/login",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"members",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login with Wrong Password",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"",
+							"var jsonData = pm.response.json();",
+							"pm.expect(jsonData).to.have.property('resultCode');",
+							"pm.expect(jsonData.resultCode).to.eql('0002');",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"nickName\": \"testUser\", \"password\": \"wrongPassword\"}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/members/login",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"members",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Join Member with Existing Nickname",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property('resultCode');",
+							"    pm.expect(jsonData.resultCode).to.eql('0003');"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\": \"Another User\", \"password\": \"testPassword\", \"nickName\": \"testUser\"}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/members/join",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"members",
+						"join"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Member with Non-Existent ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property('resultCode');",
+							"    pm.expect(jsonData.resultCode).to.eql('0001');",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\": 9999, \"name\": \"Updated User\", \"password\": \"newPassword\", \"nickName\": \"updatedUser\"}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/members/update",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"members",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Member with Existing Nickname",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.have.property('resultCode');",
+							"    pm.expect(jsonData.resultCode).to.eql('0003');"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\": 2, \"name\": \"Updated User\", \"password\": \"newPassword\", \"nickName\": \"existingNickName\"}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/members/update",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"members",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Member with Non-Existent ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"pm.expect(jsonData).to.have.property('resultCode');",
+							"pm.expect(jsonData.resultCode).to.eql('0001');"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\": 9999}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/members/leave",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"members",
+						"leave"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

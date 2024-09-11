@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "b4865151-454c-4fd8-9ae8-1770abf43b2d",
+		"_postman_id": "286b1225-e7aa-4c82-a843-2fac4c60833a",
 		"name": "Member API Tests Copy",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "38203046"
@@ -15,10 +15,19 @@
 						"exec": [
 							"var jsonData = pm.response.json();",
 							"pm.expect(jsonData).to.have.property('resultCode');",
-							"pm.expect(jsonData.resultCode).to.eql('0000');"
+							"pm.expect(jsonData.resultCode).to.eql('0000');",
+							"",
+							"pm.environment.set(\"memberId\", jsonData.data);"
 						],
 						"type": "text/javascript",
 						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"packages": {},
+						"type": "text/javascript"
 					}
 				}
 			],
@@ -61,7 +70,9 @@
 						"exec": [
 							"var jsonData = pm.response.json();",
 							"pm.expect(jsonData).to.have.property('resultCode');",
-							"pm.expect(jsonData.resultCode).to.eql('0000');"
+							"pm.expect(jsonData.resultCode).to.eql('0000');",
+							"",
+							"pm.environment.set(\"memberId\", jsonData.data);"
 						],
 						"type": "text/javascript",
 						"packages": {}
@@ -107,6 +118,27 @@
 						"type": "text/javascript",
 						"packages": {}
 					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"\r",
+							" var requestBodyJson = JSON.parse(pm.request.body.toJSON().raw);\r",
+							"    console.log(\"requestBodyJson: \", requestBodyJson);\r",
+							"  \r",
+							"    const memberId = requestBodyJson.id;\r",
+							"    console.log(\"memberId: \", memberId);\r",
+							"\r",
+							"    // 6. Request Body 재 설정\r",
+							"    requestBodyJson.id = pm.environment.get(\"memberId\");\r",
+							"    console.log(\"변경된 요청 requestBodyJson: \", requestBodyJson);\r",
+							"    // 7. 실제 body 값으로 업데이트\r",
+							"    pm.request.body.update(JSON.stringify(requestBodyJson));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
 				}
 			],
 			"request": {
@@ -144,6 +176,27 @@
 							"var jsonData = pm.response.json();",
 							"pm.expect(jsonData).to.have.property('resultCode');",
 							"pm.expect(jsonData.resultCode).to.eql('0000');"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"\r",
+							" var requestBodyJson = JSON.parse(pm.request.body.toJSON().raw);\r",
+							"    console.log(\"requestBodyJson: \", requestBodyJson);\r",
+							"  \r",
+							"    const memberId = requestBodyJson.id;\r",
+							"    console.log(\"memberId: \", memberId);\r",
+							"\r",
+							"    // 6. Request Body 재 설정\r",
+							"    requestBodyJson.id = pm.environment.get(\"memberId\");\r",
+							"    console.log(\"변경된 요청 requestBodyJson: \", requestBodyJson);\r",
+							"    // 7. 실제 body 값으로 업데이트\r",
+							"    pm.request.body.update(JSON.stringify(requestBodyJson));"
 						],
 						"type": "text/javascript",
 						"packages": {}

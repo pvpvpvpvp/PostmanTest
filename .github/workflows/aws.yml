@@ -55,5 +55,5 @@ jobs:
         run: |
           echo "${{ secrets.EC2_SSH_KEY }}" > private_key.pem
           chmod 400 private_key.pem
-          ssh -i private_key.pem -o StrictHostKeyChecking=no ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }} "cat ./usingpostman/runNewman_memeberApisTest.sh; ./usingpostman/runNewman_memeberApisTest.sh"
+          ssh -i private_key.pem -o StrictHostKeyChecking=no ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }} "cd ./usingpostman; cat ./runNewman_memeberApisTest.sh; ./runNewman_memeberApisTest.sh"
           rm -f private_key.pem

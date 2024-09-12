@@ -46,3 +46,14 @@ jobs:
         chmod 400 private_key.pem
         ssh -i private_key.pem -o StrictHostKeyChecking=no ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }} "ps -ef | grep PostManTestApi"
         rm -f private_key.pem
+  test:
+    needs: deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run Newman tests on AWS
+        run: |
+          echo "${{ secrets.EC2_SSH_KEY }}" > private_key.pem
+          chmod 400 private_key.pem
+          ssh -i private_key.pem -o StrictHostKeyChecking=no ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }} "cat ./usingpostman/runNewman_memeberApisTest.sh; ./usingpostman/runNewman_memeberApisTest.sh"
+          rm -f private_key.pem
